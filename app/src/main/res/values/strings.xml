@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RestaurantFoodDeliveryAndroidApp</string>
+    <string name="todo">TODO</string>
+    <string name="good_morning">Good Morning</string>
+    <string name="amanda_alex">Amanda Alex</string>
+    <string name="quick_action">Quick Action</string>
 </resources>
