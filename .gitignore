@@ -9,6 +9,9 @@
 # Java class files
 *.class
 
+# Project resources
+FoodAppNew
+
 # Generated files
 bin/
 gen/
