@@ -7,15 +7,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.restaurantfooddeliveryandroidapp.adapter.BestForYouAdapter;
+import com.example.restaurantfooddeliveryandroidapp.adapter.NearbyAdapter;
 import com.example.restaurantfooddeliveryandroidapp.model.BestForYouData;
+import com.example.restaurantfooddeliveryandroidapp.model.NearbyData;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView bestForYourRecycler;
+    RecyclerView bestForYourRecycler, nearbyRecycler;
     BestForYouAdapter bestForYouAdapter;
+    NearbyAdapter nearbyAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
 
         setBestForYouRecycler(bestForYouDataList);
 
+        List<NearbyData> nearbyDataList = new ArrayList<>();
+        nearbyDataList.add(new NearbyData("Sagar Ratna","35 min", R.drawable.nearby));
+        nearbyDataList.add(new NearbyData("Haldi Ram","45 min", R.drawable.nearby));
+        nearbyDataList.add(new NearbyData("KFC","55 min", R.drawable.nearby));
+        nearbyDataList.add(new NearbyData("China Town","30 min", R.drawable.nearby));
+
+        setNearbyRecycler(nearbyDataList);
+
     }
 
     private  void setBestForYouRecycler(List<BestForYouData> bestForYouList){
@@ -41,6 +52,16 @@ public class MainActivity extends AppCompatActivity {
         bestForYourRecycler.setLayoutManager(layoutManager);
         bestForYouAdapter = new BestForYouAdapter(this, bestForYouList);
         bestForYourRecycler.setAdapter(bestForYouAdapter);
+
+    }
+
+    private  void setNearbyRecycler(List<NearbyData> nearbyDataList){
+
+        nearbyRecycler = findViewById(R.id.nearby_recycler);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        nearbyRecycler.setLayoutManager(layoutManager);
+        nearbyAdapter = new NearbyAdapter(this, nearbyDataList);
+        nearbyRecycler.setAdapter(nearbyAdapter);
 
     }
 
